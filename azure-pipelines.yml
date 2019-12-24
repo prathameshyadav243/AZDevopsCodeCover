@@ -33,4 +33,4 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     codeCoverageEnabled: true
-    searchFolder: $(System.DefaultWorkingDirectory)/TestCases/**.csproj
+    searchFolder: $(System.DefaultWorkingDirectory)/TestCases
