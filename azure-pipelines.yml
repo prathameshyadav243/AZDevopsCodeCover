@@ -28,9 +28,8 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-    codeCoverageEnabled: true
-    searchFolder: $(System.DefaultWorkingDirectory)/TestCases
+    command: test
+    projects: '**/*TestCases/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
