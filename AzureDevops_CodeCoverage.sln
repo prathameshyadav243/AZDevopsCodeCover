@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureDevops_CodeCoverage", "AzureDevops_CodeCoverage\AzureDevops_CodeCoverage.csproj", "{A479D5A0-3D30-44A4-BB0C-77A3ABB3299A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCases", "TestCases\TestCases.csproj", "{3ACAFD2B-14C3-4019-AD1E-93EBABB89A92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A479D5A0-3D30-44A4-BB0C-77A3ABB3299A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A479D5A0-3D30-44A4-BB0C-77A3ABB3299A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A479D5A0-3D30-44A4-BB0C-77A3ABB3299A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A479D5A0-3D30-44A4-BB0C-77A3ABB3299A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ACAFD2B-14C3-4019-AD1E-93EBABB89A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACAFD2B-14C3-4019-AD1E-93EBABB89A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACAFD2B-14C3-4019-AD1E-93EBABB89A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACAFD2B-14C3-4019-AD1E-93EBABB89A92}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B8CC0BF-2529-436B-B0D9-7675915D1372}
+	EndGlobalSection
+EndGlobal
