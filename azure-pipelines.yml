@@ -38,7 +38,7 @@ steps:
     workingDirectory: $(Build.SourcesDirectory)\TestCases
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutputDirectory=$(Build.SourcesDirectory)\TestCases'
 
-- script: dotnet test <test-project> --logger trx --collect "Code Coverage"
+- script: dotnet test $(Build.SourcesDirectory)\TestCases\*.csproj --logger trx --collect "Code Coverage"
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
