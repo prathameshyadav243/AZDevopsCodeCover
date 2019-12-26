@@ -35,23 +35,24 @@ steps:
     projects: '**/*TestCases/*.csproj'
     publishTestResults: true
     nobuild: true
-    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutputDirectory=$(Build.SourcesDirectory)\TestResults\Coverage'
+    workingDirectory: $(Build.SourcesDirectory)\TestCases
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutputDirectory=$(Build.SourcesDirectory)\TestCases'
 
 - script: dotnet test <test-project> --logger trx --collect "Code Coverage"
 - task: PublishTestResults@2
   condition: succeededOrFailed()
   inputs:
     testRunner: VSTest
-    testResultsFiles: '**/*.trx'
+    testResultsFiles: '$(Build.SourcesDirectory)\TestCases\*.trx'
 
 - script: |
     dotnet tool install -g dotnet-reportgenerator-globaltool
-    reportgenerator -reports:$(Build.SourcesDirectory)\TestResults\Coverage\coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)\TestResults\Coverage\Reports -reporttypes:htmlInline
+    reportgenerator -reports:$(Build.SourcesDirectory)\TestCases\coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)\TestCases -reporttypes:htmlInline
   displayName: Create reports
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage'
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: $(Build.SourcesDirectory)\TestResults\Coverage\Reports\Cobertura.xml
-    reportDirectory: $(Build.SourcesDirectory)\TestResults\Coverage\Reports
+    summaryFileLocation: $(Build.SourcesDirectory)\TestCases\Cobertura.xml
+    reportDirectory: $(Build.SourcesDirectory)\TestCases
