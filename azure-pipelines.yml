@@ -32,7 +32,7 @@ steps:
   inputs:
     command: test
     projects: '**/*TestCases/*.csproj'
-    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutputDirectory=$(Build.SourcesDirectory)\TestResults\Coverage\'
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutputDirectory=$(Build.SourcesDirectory)\TestResults\Coverage'
 
 - script: |
     dotnet tool install -g dotnet-reportgenerator-globaltool
