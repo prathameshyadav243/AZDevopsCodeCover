@@ -43,7 +43,7 @@ steps:
   condition: succeededOrFailed()
   inputs:
     testRunner: VSTest
-    testResultsFiles: '$(Build.SourcesDirectory)\TestCases\*.trx'
+    testResultsFiles: '$(Agent.TempDirectory)\*.trx'
 
 - script: |
     dotnet tool install -g dotnet-reportgenerator-globaltool
