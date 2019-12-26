@@ -26,7 +26,7 @@ steps:
   inputs:
     command: build
     projects: '**/*.csproj'
-    arguments: '--configuration Release'
+    arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: dotnet test
@@ -34,7 +34,15 @@ steps:
     command: test
     projects: '**/*TestCases/*.csproj'
     publishTestResults: true
+    nobuild: true
     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutputDirectory=$(Build.SourcesDirectory)\TestResults\Coverage'
+
+- script: dotnet test <test-project> --logger trx --collect "Code Coverage"
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
 
 - script: |
     dotnet tool install -g dotnet-reportgenerator-globaltool
