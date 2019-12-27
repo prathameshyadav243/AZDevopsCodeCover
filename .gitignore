@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs/AzureDevops_CodeCoverage/v16
+/AzureDevops_CodeCoverage/obj
+/AzureDevops_CodeCoverage/bin/Debug/netcoreapp3.0
+/TestCases/obj
+/TestCases/bin/Debug/netcoreapp3.0
+/.vs/AzureDevops_CodeCoverage/DesignTimeBuild
